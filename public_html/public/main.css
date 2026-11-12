@@ -1,0 +1,159 @@
+body {
+    font-family: "Poppins";
+}
+
+.th-active {
+    --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+    --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+    box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+    --tw-ring-opacity: 1;
+    --tw-ring-color: rgb(252 207 47 / var(--tw-ring-opacity));
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+}
+
+.th-inactive {
+    --tw-ring-opacity: 1;
+    --tw-ring-color: rgb(237 238 240 / var(--tw-ring-opacity));
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+}
+
+.th-inactive:hover {
+    --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+    --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+    box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+    --tw-ring-opacity: 1;
+    --tw-ring-color: rgb(252 207 47 / var(--tw-ring-opacity));
+}
+
+.bg-brand-gradient {
+    /* The percentages control where the color transitions happen */
+    background-image: linear-gradient(to bottom, #f7c0c7 30%, #fef5f6 60%, white 70%, #87d6c3 100%);
+}
+
+/* Text Colors from Palette */
+.text-brand-text-pink-dark {
+    color: #ef7c8b;
+}
+.text-brand-dark {
+    color: #3c3430;
+}
+.text-brand-teal {
+    color: #87d6c3;
+}
+.text-brand-yellow {
+    color: #f8e574;
+}
+
+/* Background Colors from Palette */
+.bg-brand-teal-light {
+    background-color: #d7f5ee;
+}
+
+/* Specific Styles for Bottom Nav */
+.bg-brand-skin\/80 { /* The \ is needed to escape the / character in Tailwind */
+    background-color: rgba(249, 217, 199, 0.8);
+}
+.border-brand-pink-text\/30 {
+    border-color: rgba(239, 124, 139, 0.3);
+}
+
+/* Hover and Shadow Effects */
+.hover\:ring-brand-yellow:hover {
+    --tw-ring-color: #f8e574;
+}
+.shadow-md {
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+.hover\:shadow-lg:hover {
+     box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+/* --- Custom Card and Product Styles (Updated) --- */
+.custom-card {
+    background-color: white;
+    border-radius: 1rem;
+    border: 1px solid #e5e7eb; /* Default light gray border */
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.07);
+    /* Added 'border-color' to the transition for a smooth fade effect */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, border-color 0.2s ease-in-out;
+     position: relative; /* <-- Add this */
+    overflow: hidden;
+}
+
+.custom-card:hover {
+    transform: translateY(-5px);
+    border-color: #45b39d; /* Using a bolder color */
+    box-shadow: 5px 10px 15px -3px rgb(0 0 0 / 0.1), 2px 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+.product-card-image-bg {
+    background-color: #f8fafc; /* A very light gray, almost white */
+    height: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-card-details {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+/* --- Animation for Star Ornaments --- */
+
+/* This defines the animation itself. We're calling it 'twinkle'.
+   It will animate the opacity from 40% to 100% and back again. */
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* This is a helper class we can add to any element to make it twinkle. */
+.animate-twinkle {
+  animation: twinkle 4s ease-in-out infinite;
+}
+
+/* --- CSS for Product Image Gallery Transition --- */
+#mainThumbnail {
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* --- New Style for Disabled Event Cards --- */
+
+.event-card-disabled {
+    background-color: #f9fafb; /* A very light gray background */
+    opacity: 0.8;
+    cursor: not-allowed;
+    /* We set the default text color to gray. The stamp's color will override this. */
+    color: #9ca3af; 
+}
+
+/* This prevents the hover effect (lift and border color change) on disabled cards */
+.event-card-disabled:hover {
+    transform: none;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.07);
+    border-color: #e5e7eb;
+}
+
+/* --- New Style for Status Stamp --- */
+.status-stamp {
+    position: absolute;
+    top: 12px;
+    right: -30px;
+    transform: rotate(35deg);
+    padding: 4px 30px;
+    font-size: 0.75rem; /* 12px */
+    font-weight: 700;
+    color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
